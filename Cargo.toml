@@ -7,10 +7,7 @@ homepage = "https://github.com/zetamarkets/zeta-abi"
 repository = "https://github.com/zetamarkets/zeta-abi"
 keywords = ["zeta", "dex", "abi", "defi"]
 license = "Apache-2.0"
-exclude = [
-    ".github",
-    ".gitignore",
-]
+exclude = [".github", ".gitignore"]
 
 [features]
 mainnet = []
@@ -21,7 +18,7 @@ cpi = ["no-entrypoint"]
 default = ["no-entrypoint", "cpi"]
 
 [dependencies]
-anchor-lang = "0.26.0"
-anchor-spl = "0.26.0"
-solana-program = "1.13.5"
-chainlink_solana = "1.0.0"
+anchor-lang = "0.29.0"
+anchor-spl = "0.29.0"
+solana-program = "~1.16"
+#chainlink_solana = "1.0.0"
