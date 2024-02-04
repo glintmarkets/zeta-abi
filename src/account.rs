@@ -6,40 +6,39 @@ use crate::*;
 #[repr(packed)]
 pub struct State {
     // Admin authority
-    pub admin: Pubkey,                                           // 32
-    pub state_nonce: u8,                                         // 1
-    pub serum_nonce: u8,                                         // 1
-    pub mint_auth_nonce: u8,                                     // 1
-    pub num_underlyings: u8,                                     // 1
-    pub num_flex_underlyings: u8,                                // 1
-    pub _null: [u8; 7],                                          // 7
-    pub strike_initialization_threshold_seconds: u32,            // 4
-    pub pricing_frequency_seconds: u32,                          // 4
-    pub liquidator_liquidation_percentage: u32,                  // 4
-    pub insurance_vault_liquidation_percentage: u32,             // 4
-    pub native_d1_trade_fee_percentage: u64,                     // 8
-    pub native_d1_underlying_fee_percentage: u64,                // 8
-    pub native_whitelist_underlying_fee_percentage: u64,         // 8
-    pub native_deposit_limit: u64,                               // 8
-    pub expiration_threshold_seconds: u32,                       // 4
-    pub position_movement_fee_bps: u8,                           // 1
-    pub margin_concession_percentage: u8,                        // 1
-    pub treasury_wallet_nonce: u8,                               // 1
-    pub native_option_trade_fee_percentage: u64,                 // 8
-    pub native_option_underlying_fee_percentage: u64,            // 8
-    pub referrals_admin: Pubkey,                                 // 32
-    pub referrals_rewards_wallet_nonce: u8,                      // 1
-    pub max_perp_delta_age: u16,                                 // 2
-    pub secondary_admin: Pubkey,                                 // 32
-    pub vault_nonce: u8,                                         // 1
-    pub insurance_vault_nonce: u8,                               // 1
-    pub deprecated_total_insurance_vault_deposits: u64,          // 8
-    pub native_withdraw_limit: u64,                              // 8
-    pub withdraw_limit_epoch_seconds: u32,                       // 4
-    pub native_open_interest_limit: u64,                         // 8
-    pub halt_states: [HaltStateV2; ACTIVE_PERP_MARKETS],         // 18 * 5 = 90
-    pub halt_states_padding: [HaltStateV2; UNUSED_PERP_MARKETS], // 18 * 20 = 360
-    pub _padding: [u8; 338],                                     // 338
+    pub admin: Pubkey,                                   // 32
+    pub state_nonce: u8,                                 // 1
+    pub serum_nonce: u8,                                 // 1
+    pub mint_auth_nonce: u8,                             // 1
+    pub num_underlyings: u8,                             // 1
+    pub num_flex_underlyings: u8,                        // 1
+    pub _null: [u8; 7],                                  // 7
+    pub strike_initialization_threshold_seconds: u32,    // 4
+    pub pricing_frequency_seconds: u32,                  // 4
+    pub liquidator_liquidation_percentage: u32,          // 4
+    pub insurance_vault_liquidation_percentage: u32,     // 4
+    pub native_d1_trade_fee_percentage: u64,             // 8
+    pub native_d1_underlying_fee_percentage: u64,        // 8
+    pub native_whitelist_underlying_fee_percentage: u64, // 8
+    pub native_deposit_limit: u64,                       // 8
+    pub expiration_threshold_seconds: u32,               // 4
+    pub position_movement_fee_bps: u8,                   // 1
+    pub margin_concession_percentage: u8,                // 1
+    pub treasury_wallet_nonce: u8,                       // 1
+    pub native_option_trade_fee_percentage: u64,         // 8
+    pub native_option_underlying_fee_percentage: u64,    // 8
+    pub referrals_admin: Pubkey,                         // 32
+    pub referrals_rewards_wallet_nonce: u8,              // 1
+    pub max_perp_delta_age: u16,                         // 2
+    pub secondary_admin: Pubkey,                         // 32
+    pub vault_nonce: u8,                                 // 1
+    pub insurance_vault_nonce: u8,                       // 1
+    pub deprecated_total_insurance_vault_deposits: u64,  // 8
+    pub native_withdraw_limit: u64,                      // 8
+    pub withdraw_limit_epoch_seconds: u32,               // 4
+    pub native_open_interest_limit: u64,                 // 8
+    pub halt_states: [HaltStateV2; MAX_PERP_MARKETS],    // 18 * 5 = 90
+    pub _padding: [u8; 338],                             // 338
 } // 1000
 
 #[zero_copy(unsafe)]
@@ -124,20 +123,17 @@ pub struct CrossMarginAccountManager {
 #[account(zero_copy(unsafe))]
 #[repr(packed)]
 pub struct CrossMarginAccount {
-    pub authority: Pubkey,                                                  // 32
-    pub delegated_pubkey: Pubkey,                                           // 32
-    pub balance: u64,                                                       // 8
-    pub subaccount_index: u8,                                               // 1
-    pub nonce: u8,                                                          // 1
-    pub force_cancel_flag: bool,                                            // 1
-    pub account_type: MarginAccountType,                                    // 1
-    pub open_orders_nonces: [u8; ACTIVE_PERP_MARKETS],                      // 5
-    pub _open_orders_nonces_padding: [u8; UNUSED_PERP_MARKETS],             // 20
-    pub rebalance_amount: i64,                                              // 8
-    pub last_funding_deltas: [AnchorDecimal; ACTIVE_PERP_MARKETS],          // 16 * 5 = 80
-    pub _last_funding_deltas_padding: [AnchorDecimal; UNUSED_PERP_MARKETS], // 16 * 20 = 320
-    pub product_ledgers: [ProductLedger; ACTIVE_PERP_MARKETS],              // 5 * 40 = 305
-    pub _product_ledgers_padding: [ProductLedger; UNUSED_PERP_MARKETS],     // 20 * 40 = 1220
+    pub authority: Pubkey,                                      // 32
+    pub delegated_pubkey: Pubkey,                               // 32
+    pub balance: u64,                                           // 8
+    pub subaccount_index: u8,                                   // 1
+    pub nonce: u8,                                              // 1
+    pub force_cancel_flag: bool,                                // 1
+    pub account_type: MarginAccountType,                        // 1
+    pub open_orders_nonces: [u8; MAX_PERP_MARKETS],             // 5
+    pub rebalance_amount: i64,                                  // 8
+    pub last_funding_deltas: [AnchorDecimal; MAX_PERP_MARKETS], // 16 * 5 = 80
+    pub product_ledgers: [ProductLedger; MAX_PERP_MARKETS],     // 5 * 40 = 305
     pub _padding: [u8; 2000],
 } // 3509
 
@@ -153,39 +149,25 @@ pub struct PerpSyncQueue {
 #[account(zero_copy(unsafe))]
 #[repr(packed)]
 pub struct Pricing {
-    pub nonce: u8,                                                           // 1
-    pub mark_prices: [u64; ACTIVE_PERP_MARKETS],                             // 8 * 5 = 40
-    pub _mark_prices_padding: [u64; UNUSED_PERP_MARKETS],                    // 8 * 20 = 160
-    pub update_timestamps: [u64; ACTIVE_PERP_MARKETS],                       // 8 * 5 = 40
-    pub _update_timestamps_padding: [u64; UNUSED_PERP_MARKETS],              // 8 * 20 = 160
-    pub funding_deltas: [AnchorDecimal; ACTIVE_PERP_MARKETS],                // 16 * 5 = 80
-    pub _funding_deltas_padding: [AnchorDecimal; UNUSED_PERP_MARKETS],       // 16 * 20 = 320
-    pub latest_funding_rates: [AnchorDecimal; ACTIVE_PERP_MARKETS],          // 16 * 5 = 80
-    pub _latest_funding_rates_padding: [AnchorDecimal; UNUSED_PERP_MARKETS], // 16 * 20 = 320
-    pub latest_midpoints: [u64; ACTIVE_PERP_MARKETS],                        // 8 * 5 = 40
-    pub _latest_midpoints_padding: [u64; UNUSED_PERP_MARKETS],               // 8 * 20 = 160
-    pub oracles: [Pubkey; ACTIVE_PERP_MARKETS],                              // 32 * 5 = 160
-    pub _oracles_padding: [Pubkey; UNUSED_PERP_MARKETS],                     // 32 * 20 = 640
-    pub oracle_backup_feeds: [Pubkey; ACTIVE_PERP_MARKETS],                  // 32 * 5 = 160
-    pub _oracle_backup_feeds_padding: [Pubkey; UNUSED_PERP_MARKETS],         // 32 * 20 = 640
-    pub markets: [Pubkey; ACTIVE_PERP_MARKETS],                              // 32 * 5 = 160
-    pub _markets_padding: [Pubkey; UNUSED_PERP_MARKETS],                     // 32 * 20 = 640
-    pub perp_sync_queues: [Pubkey; ACTIVE_PERP_MARKETS],                     // 32 * 5 = 160
-    pub _perp_sync_queues_padding: [Pubkey; UNUSED_PERP_MARKETS],            // 32 * 20 = 640
-    pub perp_parameters: [PerpParameters; ACTIVE_PERP_MARKETS],              // 24 * 5 = 120
-    pub _perp_parameters_padding: [PerpParameters; UNUSED_PERP_MARKETS],     // 24 * 20 = 480
-    pub margin_parameters: [MarginParameters; ACTIVE_PERP_MARKETS],          // 16 * 5 = 80
-    pub _margin_parameters_padding: [MarginParameters; UNUSED_PERP_MARKETS], // 16 * 20 = 320
-    pub products: [Product; ACTIVE_PERP_MARKETS],                            // 43 * 5 = 215
-    pub _products_padding: [Product; UNUSED_PERP_MARKETS],                   // 43 * 20 = 860
-    pub zeta_group_keys: [Pubkey; ACTIVE_PERP_MARKETS],                      // 32 * 5 = 160
-    pub _zeta_group_keys_padding: [Pubkey; UNUSED_PERP_MARKETS],             // 32 * 20 = 640
-    pub total_insurance_vault_deposits: u64,                                 // 8
-    pub last_withdraw_timestamp: u64,                                        // 8
-    pub net_outflow_sum: i64,                                                // 8
-    pub halt_force_pricing: [bool; ACTIVE_PERP_MARKETS],                     // 1 * 5 = 5
-    pub _halt_force_pricing_padding: [bool; UNUSED_PERP_MARKETS],            // 1 * 20 = 20
-    pub _padding: [u8; 2707],                                                // 2707
+    pub nonce: u8,
+    pub mark_prices: [u64; MAX_PERP_MARKETS],
+    pub update_timestamps: [u64; MAX_PERP_MARKETS],
+    pub funding_deltas: [AnchorDecimal; MAX_PERP_MARKETS],
+    pub latest_funding_rates: [AnchorDecimal; MAX_PERP_MARKETS],
+    pub latest_midpoints: [u64; MAX_PERP_MARKETS],
+    pub oracles: [Pubkey; MAX_PERP_MARKETS],
+    pub oracle_backup_feeds: [Pubkey; MAX_PERP_MARKETS],
+    pub markets: [Pubkey; MAX_PERP_MARKETS],
+    pub perp_sync_queues: [Pubkey; MAX_PERP_MARKETS],
+    pub perp_parameters: [PerpParameters; MAX_PERP_MARKETS],
+    pub margin_parameters: [MarginParameters; MAX_PERP_MARKETS],
+    pub products: [Product; MAX_PERP_MARKETS],
+    pub zeta_group_keys: [Pubkey; MAX_PERP_MARKETS],
+    pub total_insurance_vault_deposits: u64,
+    pub last_withdraw_timestamp: u64,
+    pub net_outflow_sum: i64,
+    pub halt_force_pricing: [bool; MAX_PERP_MARKETS],
+    pub _padding: [u8; 2707],
 } // 10232 which is the max for PDAs (incl 8 for discriminator)
 
 #[zero_copy(unsafe)]
