@@ -426,6 +426,13 @@ pub enum Asset {
     ETH = 2,
     APT = 3,
     ARB = 4,
+    BNB = 5,
+    PYTH = 6,
+    TIA = 7,
+    JTO = 8,
+    ONEMBONK = 9,
+    SEI = 10,
+    JUP = 11,
     UNDEFINED = 255,
 }
 
