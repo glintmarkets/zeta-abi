@@ -419,20 +419,20 @@ pub enum OrderType {
 }
 
 #[repr(u8)]
-#[derive(AnchorSerialize, AnchorDeserialize, PartialEq, Eq, Clone, Copy)]
+#[derive(Debug, AnchorSerialize, AnchorDeserialize, PartialEq, Eq, Clone, Copy)]
 pub enum Asset {
-    SOL = 0,
-    BTC = 1,
-    ETH = 2,
-    APT = 3,
-    ARB = 4,
+    Solana = 0,
+    Bitcoin = 1,
+    Ethereum = 2,
+    Aptos = 3,
+    Arbitrum = 4,
     BNB = 5,
-    PYTH = 6,
-    TIA = 7,
-    JTO = 8,
-    ONEMBONK = 9,
-    SEI = 10,
-    JUP = 11,
+    Pyth = 6,
+    Celestia = 7,
+    Jito = 8,
+    MillionBonk = 9,
+    Sei = 10,
+    Jupiter = 11,
     UNDEFINED = 255,
 }
 
