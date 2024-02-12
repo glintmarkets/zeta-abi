@@ -436,6 +436,38 @@ pub enum Asset {
     UNDEFINED = 255,
 }
 
+pub fn asset_from_byte(data: u8) -> Option<Asset> {
+    match Asset::try_from_slice(&[data]) {
+        Ok(a) => Some(a),
+        Err(_) => None,
+    }
+}
+
+pub fn asset_to_string(asset: Asset) -> String {
+    match asset {
+        Asset::Solana => "SOL".to_string(),
+        Asset::Bitcoin => "BTC".to_string(),
+        Asset::Ethereum => "ETH".to_string(),
+        Asset::Aptos => "APT".to_string(),
+        Asset::Arbitrum => "ARB".to_string(),
+        Asset::BNB => "BNB".to_string(),
+        Asset::Pyth => "PYTH".to_string(),
+        Asset::Celestia => "TIA".to_string(),
+        Asset::Jito => "JTO".to_string(),
+        Asset::MillionBonk => "BONK".to_string(),
+        Asset::Sei => "SEI".to_string(),
+        Asset::Jupiter => "JUP".to_string(),
+        Asset::UNDEFINED => "UNDEFINED".to_string(),
+    }
+}
+
+pub fn asset_multiplier(asset: Asset) -> u64 {
+    match asset {
+        Asset::MillionBonk => 1_000_000,
+        _ => 1,
+    }
+}
+
 #[repr(u8)]
 #[derive(AnchorSerialize, AnchorDeserialize, PartialEq, Eq, Clone, Copy)]
 pub enum OrderCompleteType {
