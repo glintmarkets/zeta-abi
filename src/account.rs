@@ -89,7 +89,7 @@ pub struct PricingParameters {
 } // 112
 
 #[zero_copy(unsafe)]
-#[derive(Default)]
+#[derive(Debug, Default)]
 #[repr(packed)]
 pub struct MarginParameters {
     pub future_margin_initial: u64,
@@ -97,7 +97,7 @@ pub struct MarginParameters {
 } // 16 bytes.
 
 #[zero_copy(unsafe)]
-#[derive(Default)]
+#[derive(Debug, Default)]
 #[repr(packed)]
 pub struct PerpParameters {
     pub min_funding_rate_percent: i64, // 8
