@@ -433,6 +433,7 @@ pub enum Asset {
     MillionBonk = 9,
     Sei = 10,
     Jupiter = 11,
+    Dym = 12,
     UNDEFINED = 255,
 }
 
@@ -457,6 +458,7 @@ pub fn asset_to_string(asset: Asset) -> String {
         Asset::MillionBonk => "BONK".to_string(),
         Asset::Sei => "SEI".to_string(),
         Asset::Jupiter => "JUP".to_string(),
+        Asset::Dym => "DYM".to_string(),
         Asset::UNDEFINED => "UNDEFINED".to_string(),
     }
 }
