@@ -20,6 +20,7 @@ default = ["no-entrypoint", "cpi"]
 [dependencies]
 anchor-lang = "0.28.0"
 anchor-spl = { version = "0.28.0", features = ["dex"] }
+anchor-gen = { git = "https://github.com/glintmarkets/anchor-gen", rev = "1d36aa5" }
 solana-program = "~1.16"
 
 [dev-dependencies]

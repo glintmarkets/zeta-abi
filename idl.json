@@ -1,0 +1,1338 @@
+{
+    "version": "0.1.0",
+    "name": "zeta",
+    "instructions": [],
+    "accounts": [],
+    "types": [],
+    "events": [
+        {
+            "name": "TradeEvent",
+            "fields": [
+                {
+                    "name": "marginAccount",
+                    "type": "publicKey",
+                    "index": false
+                },
+                {
+                    "name": "index",
+                    "type": "u8",
+                    "index": false
+                },
+                {
+                    "name": "size",
+                    "type": "u64",
+                    "index": false
+                },
+                {
+                    "name": "costOfTrades",
+                    "type": "u64",
+                    "index": false
+                },
+                {
+                    "name": "isBid",
+                    "type": "bool",
+                    "index": false
+                },
+                {
+                    "name": "clientOrderId",
+                    "type": "u64",
+                    "index": false
+                },
+                {
+                    "name": "orderId",
+                    "type": "u128",
+                    "index": false
+                }
+            ]
+        },
+        {
+            "name": "TradeEventV2",
+            "fields": [
+                {
+                    "name": "marginAccount",
+                    "type": "publicKey",
+                    "index": false
+                },
+                {
+                    "name": "index",
+                    "type": "u8",
+                    "index": false
+                },
+                {
+                    "name": "size",
+                    "type": "u64",
+                    "index": false
+                },
+                {
+                    "name": "costOfTrades",
+                    "type": "u64",
+                    "index": false
+                },
+                {
+                    "name": "isBid",
+                    "type": "bool",
+                    "index": false
+                },
+                {
+                    "name": "clientOrderId",
+                    "type": "u64",
+                    "index": false
+                },
+                {
+                    "name": "orderId",
+                    "type": "u128",
+                    "index": false
+                },
+                {
+                    "name": "asset",
+                    "type": "u8",
+                    "index": false
+                },
+                {
+                    "name": "user",
+                    "type": "publicKey",
+                    "index": false
+                },
+                {
+                    "name": "isTaker",
+                    "type": "bool",
+                    "index": false
+                },
+                {
+                    "name": "sequenceNumber",
+                    "type": "u64",
+                    "index": false
+                }
+            ]
+        },
+        {
+            "name": "TradeEventV3",
+            "fields": [
+                {
+                    "name": "marginAccount",
+                    "type": "publicKey",
+                    "index": false
+                },
+                {
+                    "name": "index",
+                    "type": "u8",
+                    "index": false
+                },
+                {
+                    "name": "size",
+                    "type": "u64",
+                    "index": false
+                },
+                {
+                    "name": "costOfTrades",
+                    "type": "u64",
+                    "index": false
+                },
+                {
+                    "name": "isBid",
+                    "type": "bool",
+                    "index": false
+                },
+                {
+                    "name": "clientOrderId",
+                    "type": "u64",
+                    "index": false
+                },
+                {
+                    "name": "orderId",
+                    "type": "u128",
+                    "index": false
+                },
+                {
+                    "name": "asset",
+                    "type": {
+                        "defined": "Asset"
+                    },
+                    "index": false
+                },
+                {
+                    "name": "user",
+                    "type": "publicKey",
+                    "index": false
+                },
+                {
+                    "name": "isTaker",
+                    "type": "bool",
+                    "index": false
+                },
+                {
+                    "name": "sequenceNumber",
+                    "type": "u64",
+                    "index": false
+                },
+                {
+                    "name": "fee",
+                    "type": "u64",
+                    "index": false
+                },
+                {
+                    "name": "price",
+                    "type": "u64",
+                    "index": false
+                },
+                {
+                    "name": "pnl",
+                    "type": "i64",
+                    "index": false
+                },
+                {
+                    "name": "rebate",
+                    "type": "u64",
+                    "index": false
+                }
+            ]
+        },
+        {
+            "name": "PositionMovementEvent",
+            "fields": [
+                {
+                    "name": "netBalanceTransfer",
+                    "type": "i64",
+                    "index": false
+                },
+                {
+                    "name": "marginAccountBalance",
+                    "type": "u64",
+                    "index": false
+                },
+                {
+                    "name": "spreadAccountBalance",
+                    "type": "u64",
+                    "index": false
+                },
+                {
+                    "name": "movementFees",
+                    "type": "u64",
+                    "index": false
+                }
+            ]
+        },
+        {
+            "name": "PlaceOrderEvent",
+            "fields": [
+                {
+                    "name": "fee",
+                    "type": "u64",
+                    "index": false
+                },
+                {
+                    "name": "oraclePrice",
+                    "type": "u64",
+                    "index": false
+                },
+                {
+                    "name": "orderId",
+                    "type": "u128",
+                    "index": false
+                },
+                {
+                    "name": "expiryTs",
+                    "type": "u64",
+                    "index": false
+                },
+                {
+                    "name": "asset",
+                    "type": {
+                        "defined": "Asset"
+                    },
+                    "index": false
+                },
+                {
+                    "name": "marginAccount",
+                    "type": "publicKey",
+                    "index": false
+                },
+                {
+                    "name": "clientOrderId",
+                    "type": "u64",
+                    "index": false
+                },
+                {
+                    "name": "user",
+                    "type": "publicKey",
+                    "index": false
+                }
+            ]
+        },
+        {
+            "name": "LiquidationEvent",
+            "fields": [
+                {
+                    "name": "liquidatorReward",
+                    "type": "u64",
+                    "index": false
+                },
+                {
+                    "name": "insuranceReward",
+                    "type": "u64",
+                    "index": false
+                },
+                {
+                    "name": "costOfTrades",
+                    "type": "u64",
+                    "index": false
+                },
+                {
+                    "name": "size",
+                    "type": "i64",
+                    "index": false
+                },
+                {
+                    "name": "remainingLiquidateeBalance",
+                    "type": "u64",
+                    "index": false
+                },
+                {
+                    "name": "remainingLiquidatorBalance",
+                    "type": "u64",
+                    "index": false
+                },
+                {
+                    "name": "markPrice",
+                    "type": "u64",
+                    "index": false
+                },
+                {
+                    "name": "underlyingPrice",
+                    "type": "u64",
+                    "index": false
+                },
+                {
+                    "name": "liquidatee",
+                    "type": "publicKey",
+                    "index": false
+                },
+                {
+                    "name": "liquidator",
+                    "type": "publicKey",
+                    "index": false
+                },
+                {
+                    "name": "asset",
+                    "type": {
+                        "defined": "Asset"
+                    },
+                    "index": false
+                },
+                {
+                    "name": "liquidateeMarginAccount",
+                    "type": "publicKey",
+                    "index": false
+                },
+                {
+                    "name": "liquidatorMarginAccount",
+                    "type": "publicKey",
+                    "index": false
+                }
+            ]
+        },
+        {
+            "name": "OrderCompleteEvent",
+            "fields": [
+                {
+                    "name": "marginAccount",
+                    "type": "publicKey",
+                    "index": false
+                },
+                {
+                    "name": "user",
+                    "type": "publicKey",
+                    "index": false
+                },
+                {
+                    "name": "asset",
+                    "type": {
+                        "defined": "Asset"
+                    },
+                    "index": false
+                },
+                {
+                    "name": "marketIndex",
+                    "type": "u8",
+                    "index": false
+                },
+                {
+                    "name": "side",
+                    "type": {
+                        "defined": "Side"
+                    },
+                    "index": false
+                },
+                {
+                    "name": "unfilledSize",
+                    "type": "u64",
+                    "index": false
+                },
+                {
+                    "name": "orderId",
+                    "type": "u128",
+                    "index": false
+                },
+                {
+                    "name": "clientOrderId",
+                    "type": "u64",
+                    "index": false
+                },
+                {
+                    "name": "orderCompleteType",
+                    "type": {
+                        "defined": "OrderCompleteType"
+                    },
+                    "index": false
+                }
+            ]
+        },
+        {
+            "name": "ApplyFundingEvent",
+            "fields": [
+                {
+                    "name": "marginAccount",
+                    "type": "publicKey",
+                    "index": false
+                },
+                {
+                    "name": "user",
+                    "type": "publicKey",
+                    "index": false
+                },
+                {
+                    "name": "asset",
+                    "type": {
+                        "defined": "Asset"
+                    },
+                    "index": false
+                },
+                {
+                    "name": "balanceChange",
+                    "type": "i64",
+                    "index": false
+                },
+                {
+                    "name": "remainingBalance",
+                    "type": "u64",
+                    "index": false
+                },
+                {
+                    "name": "fundingRate",
+                    "type": "i64",
+                    "index": false
+                },
+                {
+                    "name": "oraclePrice",
+                    "type": "u64",
+                    "index": false
+                },
+                {
+                    "name": "positionSize",
+                    "type": "i64",
+                    "index": false
+                }
+            ]
+        },
+        {
+            "name": "PlaceMultiOrdersEvent",
+            "fields": [
+                {
+                    "name": "oraclePrice",
+                    "type": "u64",
+                    "index": false
+                },
+                {
+                    "name": "orderIds",
+                    "type": {
+                        "vec": "u128"
+                    },
+                    "index": false
+                },
+                {
+                    "name": "expiryTss",
+                    "type": {
+                        "vec": "u64"
+                    },
+                    "index": false
+                },
+                {
+                    "name": "asset",
+                    "type": {
+                        "defined": "Asset"
+                    },
+                    "index": false
+                },
+                {
+                    "name": "marginAccount",
+                    "type": "publicKey",
+                    "index": false
+                },
+                {
+                    "name": "clientOrderIds",
+                    "type": {
+                        "vec": "u64"
+                    },
+                    "index": false
+                },
+                {
+                    "name": "user",
+                    "type": "publicKey",
+                    "index": false
+                }
+            ]
+        }
+    ],
+    "errors": [
+        {
+            "code": 6000,
+            "name": "DepositOverflow",
+            "msg": "Deposit overflow"
+        },
+        {
+            "code": 6001,
+            "name": "Unreachable",
+            "msg": "Unreachable"
+        },
+        {
+            "code": 6002,
+            "name": "FailedInitialMarginRequirement",
+            "msg": "Failed initial margin requirement"
+        },
+        {
+            "code": 6003,
+            "name": "LiquidatorFailedMarginRequirement",
+            "msg": "Liquidator failed margin requirement"
+        },
+        {
+            "code": 6004,
+            "name": "CannotLiquidateOwnAccount",
+            "msg": "Cannot liquidate own account"
+        },
+        {
+            "code": 6005,
+            "name": "CrankInvalidRemainingAccounts",
+            "msg": "Invalid cranking remaining accounts"
+        },
+        {
+            "code": 6006,
+            "name": "IncorrectTickSize",
+            "msg": "Incorrect tick size"
+        },
+        {
+            "code": 6007,
+            "name": "ZeroPrice",
+            "msg": "ZeroPrice"
+        },
+        {
+            "code": 6008,
+            "name": "ZeroSize",
+            "msg": "ZeroSize"
+        },
+        {
+            "code": 6009,
+            "name": "ZeroWithdrawableBalance",
+            "msg": "Zero withdrawable balance"
+        },
+        {
+            "code": 6010,
+            "name": "DepositAmountExceeded",
+            "msg": "Deposit amount exceeds limit and user is not whitelisted"
+        },
+        {
+            "code": 6011,
+            "name": "WithdrawalAmountExceedsWithdrawableBalance",
+            "msg": "Withdrawal amount exceeds withdrawable balance"
+        },
+        {
+            "code": 6012,
+            "name": "AccountHasSufficientMarginPostCancels",
+            "msg": "Account has sufficient margin post cancels"
+        },
+        {
+            "code": 6013,
+            "name": "OverBankrupt",
+            "msg": "Over bankrupt"
+        },
+        {
+            "code": 6014,
+            "name": "AccountHasSufficientMargin",
+            "msg": "Account has sufficient margin"
+        },
+        {
+            "code": 6015,
+            "name": "UserHasNoActiveOrders",
+            "msg": "User has no active orders"
+        },
+        {
+            "code": 6016,
+            "name": "InvalidExpirationInterval",
+            "msg": "Invalid expiration interval"
+        },
+        {
+            "code": 6017,
+            "name": "ProductMarketsAlreadyInitialized",
+            "msg": "Product markets already initialized"
+        },
+        {
+            "code": 6018,
+            "name": "InvalidProductMarketKey",
+            "msg": "Invalid product market key"
+        },
+        {
+            "code": 6019,
+            "name": "MarketNotLive",
+            "msg": "Market not live"
+        },
+        {
+            "code": 6020,
+            "name": "MarketPricingNotReady",
+            "msg": "Market pricing not ready"
+        },
+        {
+            "code": 6021,
+            "name": "UserHasRemainingOrdersOnExpiredMarket",
+            "msg": "User has remaining orders on expired market"
+        },
+        {
+            "code": 6022,
+            "name": "InvalidSeriesExpiration",
+            "msg": "Invalid series expiration"
+        },
+        {
+            "code": 6023,
+            "name": "InvalidExpiredOrderCancel",
+            "msg": "Invalid expired order cancel"
+        },
+        {
+            "code": 6024,
+            "name": "NoMarketsToAdd",
+            "msg": "No markets to add"
+        },
+        {
+            "code": 6025,
+            "name": "UserHasUnsettledPositions",
+            "msg": "User has unsettled positions"
+        },
+        {
+            "code": 6026,
+            "name": "NoMarginAccountsToSettle",
+            "msg": "No margin accounts to settle"
+        },
+        {
+            "code": 6027,
+            "name": "CannotSettleUserWithActiveOrders",
+            "msg": "Cannot settle users with active orders"
+        },
+        {
+            "code": 6028,
+            "name": "OrderbookNotEmpty",
+            "msg": "Orderbook not empty"
+        },
+        {
+            "code": 6029,
+            "name": "InvalidNumberOfAccounts",
+            "msg": "Invalid number of accounts"
+        },
+        {
+            "code": 6030,
+            "name": "InvalidMarketAccounts",
+            "msg": "Bids or Asks don't match the Market"
+        },
+        {
+            "code": 6031,
+            "name": "ProductStrikeUninitialized",
+            "msg": "Product strike uninitialized"
+        },
+        {
+            "code": 6032,
+            "name": "PricingNotUpToDate",
+            "msg": "Pricing not up to date"
+        },
+        {
+            "code": 6033,
+            "name": "RetreatsAreStale",
+            "msg": "Retreats are stale"
+        },
+        {
+            "code": 6034,
+            "name": "ProductDirty",
+            "msg": "Product dirty"
+        },
+        {
+            "code": 6035,
+            "name": "ProductStrikesInitialized",
+            "msg": "Product strikes initialized"
+        },
+        {
+            "code": 6036,
+            "name": "StrikeInitializationNotReady",
+            "msg": "Strike initialization not ready"
+        },
+        {
+            "code": 6037,
+            "name": "UnsupportedKind",
+            "msg": "Unsupported kind"
+        },
+        {
+            "code": 6038,
+            "name": "InvalidZetaGroup",
+            "msg": "Invalid zeta group"
+        },
+        {
+            "code": 6039,
+            "name": "InvalidMarginAccount",
+            "msg": "Invalid margin account"
+        },
+        {
+            "code": 6040,
+            "name": "InvalidGreeksAccount",
+            "msg": "Invalid greeks account"
+        },
+        {
+            "code": 6041,
+            "name": "InvalidSettlementAccount",
+            "msg": "Invalid settlement account"
+        },
+        {
+            "code": 6042,
+            "name": "InvalidCancelAuthority",
+            "msg": "Invalid cancel authority"
+        },
+        {
+            "code": 6043,
+            "name": "CannotUpdatePricingAfterExpiry",
+            "msg": "Cannot update pricing after expiry"
+        },
+        {
+            "code": 6044,
+            "name": "LoadAccountDiscriminatorAlreadySet",
+            "msg": "Account discriminator already set"
+        },
+        {
+            "code": 6045,
+            "name": "AccountAlreadyInitialized",
+            "msg": "Account already initialized"
+        },
+        {
+            "code": 6046,
+            "name": "GreeksAccountSeedsMismatch",
+            "msg": "Greeks account seeds mismatch"
+        },
+        {
+            "code": 6047,
+            "name": "ZetaGroupAccountSeedsMismatch",
+            "msg": "Zeta group account seeds mismatch"
+        },
+        {
+            "code": 6048,
+            "name": "MarginAccountSeedsMismatch",
+            "msg": "Margin account seeds mismatch"
+        },
+        {
+            "code": 6049,
+            "name": "OpenOrdersAccountSeedsMismatch",
+            "msg": "Open orders account seeds mismatch"
+        },
+        {
+            "code": 6050,
+            "name": "MarketNodeAccountSeedsMismatch",
+            "msg": "Market node seeds mismatch"
+        },
+        {
+            "code": 6051,
+            "name": "UserTradingFeeWhitelistAccountSeedsMismatch",
+            "msg": "User trading fee whitelist account seeds mismatch"
+        },
+        {
+            "code": 6052,
+            "name": "UserDepositWhitelistAccountSeedsMismatch",
+            "msg": "User deposit whitelist account seeds mismatch"
+        },
+        {
+            "code": 6053,
+            "name": "MarketIndexesUninitialized",
+            "msg": "Market indexes uninitialized"
+        },
+        {
+            "code": 6054,
+            "name": "MarketIndexesAlreadyInitialized",
+            "msg": "Market indexes already initialized"
+        },
+        {
+            "code": 6055,
+            "name": "CannotGetUnsetStrike",
+            "msg": "Cannot get unset strike"
+        },
+        {
+            "code": 6056,
+            "name": "CannotSetInitializedStrike",
+            "msg": "Cannot set initialized strike"
+        },
+        {
+            "code": 6057,
+            "name": "CannotResetUninitializedStrike",
+            "msg": "Cannot set initialized strike"
+        },
+        {
+            "code": 6058,
+            "name": "CrankMarginAccountNotMutable",
+            "msg": "CrankMarginAccountNotMutable"
+        },
+        {
+            "code": 6059,
+            "name": "InvalidAdminSigner",
+            "msg": "InvalidAdminSigner"
+        },
+        {
+            "code": 6060,
+            "name": "UserHasActiveOrders",
+            "msg": "User still has active orders"
+        },
+        {
+            "code": 6061,
+            "name": "UserForceCancelInProgress",
+            "msg": "User has a force cancel in progress"
+        },
+        {
+            "code": 6062,
+            "name": "FailedPriceBandCheck",
+            "msg": "Failed price band check"
+        },
+        {
+            "code": 6063,
+            "name": "UnsortedOpenOrdersAccounts",
+            "msg": "Unsorted open orders accounts"
+        },
+        {
+            "code": 6064,
+            "name": "AccountNotMutable",
+            "msg": "Account not mutable"
+        },
+        {
+            "code": 6065,
+            "name": "AccountDiscriminatorMismatch",
+            "msg": "Account discriminator mismatch"
+        },
+        {
+            "code": 6066,
+            "name": "InvalidMarketNodeIndex",
+            "msg": "Invalid market node index"
+        },
+        {
+            "code": 6067,
+            "name": "InvalidMarketNode",
+            "msg": "Invalid market node"
+        },
+        {
+            "code": 6068,
+            "name": "LUTOutOfBounds",
+            "msg": "Lut out of bounds"
+        },
+        {
+            "code": 6069,
+            "name": "RebalanceInsuranceInvalidRemainingAccounts",
+            "msg": "Rebalance insurance vault with no margin accounts"
+        },
+        {
+            "code": 6070,
+            "name": "InvalidMintDecimals",
+            "msg": "Invalid mint decimals"
+        },
+        {
+            "code": 6071,
+            "name": "InvalidZetaGroupOracle",
+            "msg": "Invalid oracle for this zeta group"
+        },
+        {
+            "code": 6072,
+            "name": "InvalidZetaGroupDepositMint",
+            "msg": "Invalid zeta group deposit mint"
+        },
+        {
+            "code": 6073,
+            "name": "InvalidZetaGroupRebalanceMint",
+            "msg": "Invalid zeta group rebalance insurance vault mint"
+        },
+        {
+            "code": 6074,
+            "name": "InvalidDepositAmount",
+            "msg": "Invalid deposit amount"
+        },
+        {
+            "code": 6075,
+            "name": "InvalidTokenAccountOwner",
+            "msg": "Invalid token account owner"
+        },
+        {
+            "code": 6076,
+            "name": "InvalidWithdrawAmount",
+            "msg": "Invalid withdraw amount"
+        },
+        {
+            "code": 6077,
+            "name": "InvalidDepositRemainingAccounts",
+            "msg": "Invalid number of remaining accounts in deposit"
+        },
+        {
+            "code": 6078,
+            "name": "InvalidPlaceOrderRemainingAccounts",
+            "msg": "Invalid number of remaining accounts in place order"
+        },
+        {
+            "code": 6079,
+            "name": "ClientOrderIdCannotBeZero",
+            "msg": "ClientOrderIdCannotBeZero"
+        },
+        {
+            "code": 6080,
+            "name": "ZetaGroupHalted",
+            "msg": "Zeta group halted"
+        },
+        {
+            "code": 6081,
+            "name": "ZetaGroupNotHalted",
+            "msg": "Zeta group not halted"
+        },
+        {
+            "code": 6082,
+            "name": "HaltMarkPriceNotSet",
+            "msg": "Halt mark price not set"
+        },
+        {
+            "code": 6083,
+            "name": "HaltMarketsNotCleaned",
+            "msg": "Halt markets not cleaned"
+        },
+        {
+            "code": 6084,
+            "name": "HaltMarketNodesNotCleaned",
+            "msg": "Halt market nodes not cleaned"
+        },
+        {
+            "code": 6085,
+            "name": "CannotExpireOptionsAfterExpirationThreshold",
+            "msg": "Cannot expire options after expiration threshold"
+        },
+        {
+            "code": 6086,
+            "name": "PostOnlyInCross",
+            "msg": "Post only order in cross"
+        },
+        {
+            "code": 6087,
+            "name": "FillOrKillNotFullSize",
+            "msg": "Fill or kill order was not filled for full size"
+        },
+        {
+            "code": 6088,
+            "name": "InvalidOpenOrdersMapOwner",
+            "msg": "Invalid open orders map owner"
+        },
+        {
+            "code": 6089,
+            "name": "AccountDidNotSerialize",
+            "msg": "Failed to serialize the account"
+        },
+        {
+            "code": 6090,
+            "name": "OpenOrdersWithNonEmptyPositions",
+            "msg": "Cannot close open orders account with non empty positions"
+        },
+        {
+            "code": 6091,
+            "name": "CannotCloseNonEmptyMarginAccount",
+            "msg": "Cannot close margin account that is not empty"
+        },
+        {
+            "code": 6092,
+            "name": "InvalidTagLength",
+            "msg": "Invalid tag length"
+        },
+        {
+            "code": 6093,
+            "name": "NakedShortCallIsNotAllowed",
+            "msg": "Naked short call is not allowed"
+        },
+        {
+            "code": 6094,
+            "name": "InvalidSpreadAccount",
+            "msg": "Invalid spread account"
+        },
+        {
+            "code": 6095,
+            "name": "CannotCloseNonEmptySpreadAccount",
+            "msg": "Cannot close non empty spread account"
+        },
+        {
+            "code": 6096,
+            "name": "SpreadAccountSeedsMismatch",
+            "msg": "Spread account seeds mismatch"
+        },
+        {
+            "code": 6097,
+            "name": "SpreadAccountHasUnsettledPositions",
+            "msg": "Spread account seeds mismatch"
+        },
+        {
+            "code": 6098,
+            "name": "SpreadAccountInvalidExpirySeriesState",
+            "msg": "Spread account invalid expiry series state"
+        },
+        {
+            "code": 6099,
+            "name": "InsufficientFundsToCollateralizeSpreadAccount",
+            "msg": "Insufficient funds to collateralize spread account"
+        },
+        {
+            "code": 6100,
+            "name": "FailedMaintenanceMarginRequirement",
+            "msg": "Failed maintenance margin requirement"
+        },
+        {
+            "code": 6101,
+            "name": "InvalidMovement",
+            "msg": "Invalid movement"
+        },
+        {
+            "code": 6102,
+            "name": "MovementOnExpiredSeries",
+            "msg": "Movement on expired series"
+        },
+        {
+            "code": 6103,
+            "name": "InvalidMovementSize",
+            "msg": "Invalid movement size"
+        },
+        {
+            "code": 6104,
+            "name": "ExceededMaxPositionMovements",
+            "msg": "Exceeded max position movements"
+        },
+        {
+            "code": 6105,
+            "name": "ExceededMaxSpreadAccountContracts",
+            "msg": "Exceeded max spread account contracts"
+        },
+        {
+            "code": 6106,
+            "name": "OraclePriceIsInvalid",
+            "msg": "Fetched oracle price is invalid"
+        },
+        {
+            "code": 6107,
+            "name": "InvalidUnderlyingMint",
+            "msg": "Provided underlying mint address is invalid"
+        },
+        {
+            "code": 6108,
+            "name": "InvalidReferrerAlias",
+            "msg": "Invalid referrer alias - Invalid length"
+        },
+        {
+            "code": 6109,
+            "name": "ReferrerAlreadyHasAlias",
+            "msg": "Referrer already has alias"
+        },
+        {
+            "code": 6110,
+            "name": "InvalidTreasuryMovementAmount",
+            "msg": "Invalid treasury movement amount"
+        },
+        {
+            "code": 6111,
+            "name": "InvalidReferralsAdminSigner",
+            "msg": "Invalid referrals admin signer"
+        },
+        {
+            "code": 6112,
+            "name": "InvalidSetReferralsRewardsRemainingAccounts",
+            "msg": "Invalid set referrals rewards remaining accounts"
+        },
+        {
+            "code": 6113,
+            "name": "SetReferralsRewardsAccountNotMutable",
+            "msg": "Referrals account not mutable"
+        },
+        {
+            "code": 6114,
+            "name": "InvalidClaimReferralsRewardsAmount",
+            "msg": "Invalid claim referrals rewards: not enough in refererals rewards wallet"
+        },
+        {
+            "code": 6115,
+            "name": "InvalidClaimReferralsRewardsAccount",
+            "msg": "Invalid claim referrals rewards: referrals account is not a referral or referrer account"
+        },
+        {
+            "code": 6116,
+            "name": "ReferralAccountSeedsMismatch",
+            "msg": "Referral account seeds mismatch"
+        },
+        {
+            "code": 6117,
+            "name": "ReferrerAccountSeedsMismatch",
+            "msg": "Referrer account seeds mismatch"
+        },
+        {
+            "code": 6118,
+            "name": "ProtectedMmMarginAccount",
+            "msg": "Market maker accounts are protected from liquidation"
+        },
+        {
+            "code": 6119,
+            "name": "CannotWithdrawWithOpenOrders",
+            "msg": "Cannot withdraw with open orders"
+        },
+        {
+            "code": 6120,
+            "name": "FundingRateNotUpToDate",
+            "msg": "Perp funding rate not up to date"
+        },
+        {
+            "code": 6121,
+            "name": "PerpSyncQueueFull",
+            "msg": "Perp taker/maker sync queue is full"
+        },
+        {
+            "code": 6122,
+            "name": "PerpSyncQueueAccountSeedsMismatch",
+            "msg": "PerpSyncQueue account seeds mismatch"
+        },
+        {
+            "code": 6123,
+            "name": "PerpSyncQueueEmpty",
+            "msg": "Program tried to pop from an empty perpSyncQueue"
+        },
+        {
+            "code": 6124,
+            "name": "InvalidNonPerpMarket",
+            "msg": "Perp product index given in placeOrder, use placePerpOrder"
+        },
+        {
+            "code": 6125,
+            "name": "InvalidPerpMarket",
+            "msg": "Non-perp product index given in placePerpOrder, use placeOrder"
+        },
+        {
+            "code": 6126,
+            "name": "CannotInitializePerpMarketNode",
+            "msg": "Not allowed to initialize market node for a perp market"
+        },
+        {
+            "code": 6127,
+            "name": "DeprecatedInstruction",
+            "msg": "Instruction is deprecated, please use the newer version"
+        },
+        {
+            "code": 6128,
+            "name": "ForceCancelExpiredTIFOrdersOnly",
+            "msg": "Can only force cancel expired TIF orders"
+        },
+        {
+            "code": 6129,
+            "name": "InvalidPlaceOrderAuthority",
+            "msg": "Invalid place order authority"
+        },
+        {
+            "code": 6130,
+            "name": "InvalidOpenOrdersAuthority",
+            "msg": "Invalid open orders authority"
+        },
+        {
+            "code": 6131,
+            "name": "InsuranceVaultSeedsMismatch",
+            "msg": "Insurance vault seeds mismatch"
+        },
+        {
+            "code": 6132,
+            "name": "OpenInterestLimitBreach",
+            "msg": "Open interest limit breach, decrease your position"
+        },
+        {
+            "code": 6133,
+            "name": "WithdrawLimitBreach",
+            "msg": "Withdraw limit breach, wait to withdraw more"
+        },
+        {
+            "code": 6134,
+            "name": "InvalidPricingOracle",
+            "msg": "Invalid oracle for this pricing account"
+        },
+        {
+            "code": 6135,
+            "name": "PricingAccountSeedsMismatch",
+            "msg": "Pricing account seeds mismatch"
+        },
+        {
+            "code": 6136,
+            "name": "ZetaHalted",
+            "msg": "Zeta exchange is halted"
+        },
+        {
+            "code": 6137,
+            "name": "ZetaNotHalted",
+            "msg": "Zeta exchange is not halted"
+        },
+        {
+            "code": 6138,
+            "name": "NotFreshCrossMarginAccount",
+            "msg": "Cross margin account is not unused, close it and make a new one"
+        },
+        {
+            "code": 6139,
+            "name": "CannotCloseNonEmptyMarginAccountManager",
+            "msg": "Cannot close margin account manager that is not empty"
+        },
+        {
+            "code": 6140,
+            "name": "CannotMigrateWithOpenOrders",
+            "msg": "Cannot migrate to cross margin account with open orders, close all open orders"
+        },
+        {
+            "code": 6141,
+            "name": "InvalidMarginAccountType",
+            "msg": "Invalid margin account type - account is not MarginAccount or CrossMarginAccount"
+        },
+        {
+            "code": 6142,
+            "name": "MarginAccountAssetMismatch",
+            "msg": "Margin account asset mismatched with instruction argument asset"
+        },
+        {
+            "code": 6143,
+            "name": "FeatureUnavailable",
+            "msg": "Feature is not available yet"
+        },
+        {
+            "code": 6144,
+            "name": "MarginAccountCannotLiquidateCrossMarginAccount",
+            "msg": "MarginAccount cannot liquidate CrossMarginAccount"
+        },
+        {
+            "code": 6145,
+            "name": "InvalidDexAccOwner",
+            "msg": "Invalid owner for dex account"
+        },
+        {
+            "code": 6146,
+            "name": "TriggerOrderCannotBeRemoved",
+            "msg": "Trigger order cannot be removed"
+        },
+        {
+            "code": 6147,
+            "name": "TriggerOrderCannotBeExecuted",
+            "msg": "Trigger order cannot be executed"
+        },
+        {
+            "code": 6148,
+            "name": "TooManyTriggerOrders",
+            "msg": "Too many trigger orders, close some and retry"
+        },
+        {
+            "code": 6149,
+            "name": "InvalidTriggerOrderRemainingAccounts",
+            "msg": "Invalid trigger order remaining accounts"
+        },
+        {
+            "code": 6150,
+            "name": "InvalidTriggerOrderWhitelistFeesAccount",
+            "msg": "Invalid trigger order whitelist fees account"
+        },
+        {
+            "code": 6151,
+            "name": "MissingTriggerOrderWhitelistFeesAccount",
+            "msg": "Missing trigger order whitelist fees account"
+        },
+        {
+            "code": 6152,
+            "name": "InvalidTriggerOrderBitRange",
+            "msg": "Invalid trigger order bit range"
+        },
+        {
+            "code": 6153,
+            "name": "InvalidSecondaryAdmin",
+            "msg": "Invalid secondary admin"
+        },
+        {
+            "code": 6154,
+            "name": "OnlyOwnerCanEditTriggerOrder",
+            "msg": "Only the owner can edit their own trigger order"
+        },
+        {
+            "code": 6155,
+            "name": "TriggerOrderNeedsTimeOrPriceAndDirection",
+            "msg": "Trigger order needs either a trigger price + direction, or trigger time"
+        },
+        {
+            "code": 6156,
+            "name": "TriggerOrderBitOccupied",
+            "msg": "Given trigger order bit is occupied, pick another"
+        },
+        {
+            "code": 6157,
+            "name": "InvalidLiquidatorAuthority",
+            "msg": "Invalid liquidator authority"
+        },
+        {
+            "code": 6158,
+            "name": "IOCInvalidTakerFillSize",
+            "msg": "IOC size_to_use doesn't match taker fill size"
+        },
+        {
+            "code": 6159,
+            "name": "IncorrectLotSize",
+            "msg": "Incorrect lot size"
+        },
+        {
+            "code": 6160,
+            "name": "InvalidReferrerIDLength",
+            "msg": "Invalid referrer ID length"
+        },
+        {
+            "code": 6161,
+            "name": "InvalidReferrerIDOwner",
+            "msg": "Invalid referrer ID owner"
+        },
+        {
+            "code": 6162,
+            "name": "CannotReferSelf",
+            "msg": "User cannot refer themselves"
+        },
+        {
+            "code": 6163,
+            "name": "InvalidMATypeAdminSigner",
+            "msg": "Invalid margin account type admin signer"
+        },
+        {
+            "code": 6164,
+            "name": "PostOnlyForMulti",
+            "msg": "Post only order types only for multi orders"
+        },
+        {
+            "code": 6165,
+            "name": "ErrTickWide",
+            "msg": "ErrTickWide"
+        },
+        {
+            "code": 6166,
+            "name": "OORemainingEvents",
+            "msg": "Open orders has remaining events"
+        },
+        {
+            "code": 6167,
+            "name": "CannotForceCancelTriggerOrder",
+            "msg": "Cannot force cancel trigger order"
+        },
+        {
+            "code": 6168,
+            "name": "InvalidPricingAdmin",
+            "msg": "Invalid pricing admin"
+        },
+        {
+            "code": 6169,
+            "name": "InvalidOracleUpdate",
+            "msg": "Invalid oracle update"
+        }
+    ]
+}
