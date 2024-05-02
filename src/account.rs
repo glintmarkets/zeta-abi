@@ -435,7 +435,7 @@ pub enum Asset {
     Jupiter = 11,
     Dym = 12,
     Starknet = 13,
-    Wormhole = 14,
+    Dogwifhat = 14,
     UNDEFINED = 255,
 }
 
@@ -462,7 +462,7 @@ pub fn asset_to_string(asset: Asset) -> String {
         Asset::Jupiter => "JUP".to_string(),
         Asset::Dym => "DYM".to_string(),
         Asset::Starknet => "STRK".to_string(),
-        Asset::Wormhole => "W".to_string(),
+        Asset::Dogwifhat => "WIF".to_string(),
         Asset::UNDEFINED => "UNDEFINED".to_string(),
     }
 }
