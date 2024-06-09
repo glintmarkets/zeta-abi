@@ -436,8 +436,8 @@ pub enum Asset {
     Dym = 12,
     Starknet = 13,
     Dogwifhat = 14,
-    Wormhole = 15,
-    Render = 16,
+    Render = 15,
+    Wormhole = 16,
     UNDEFINED = 255,
 }
 
