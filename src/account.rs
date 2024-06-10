@@ -437,7 +437,7 @@ pub enum Asset {
     Starknet = 13,
     Dogwifhat = 14,
     Render = 15,
-    Wormhole = 16,
+    Tensor = 16,
     UNDEFINED = 255,
 }
 
@@ -465,8 +465,8 @@ pub fn asset_to_string(asset: Asset) -> String {
         Asset::Dym => "DYM".to_string(),
         Asset::Starknet => "STRK".to_string(),
         Asset::Dogwifhat => "WIF".to_string(),
-        Asset::Wormhole => "W".to_string(),
         Asset::Render => "RNDR".to_string(),
+        Asset::Tensor => "TNSR".to_string(),
         Asset::UNDEFINED => "UNDEFINED".to_string(),
     }
 }
