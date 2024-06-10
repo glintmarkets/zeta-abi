@@ -418,6 +418,8 @@ pub enum OrderType {
     PostOnlySlide = 4,
 }
 
+// This enum is a direct mapping to the Zeta IDL:
+// https://github.com/zetamarkets/sdk/tree/main/src/idl#L9990
 #[repr(u8)]
 #[derive(Debug, AnchorSerialize, AnchorDeserialize, PartialEq, Eq, Clone, Copy)]
 pub enum Asset {
